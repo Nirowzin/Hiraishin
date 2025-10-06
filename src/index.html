@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hiraishin VPN - Análise Inteligente de Conexão</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-bolt"></i>
+                    <h1>Hiraishin VPN</h1>
+                </div>
+                <div class="status-section">
+                    <div id="status-indicator" class="status-indicator disconnected"></div>
+                    <span id="status-text" class="status-text">Desconectado</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Control Panel -->
+            <section class="control-panel">
+                <div class="panel-header">
+                    <h2><i class="fas fa-cogs"></i> Controle de Conexão</h2>
+                </div>
+                <div class="control-buttons">
+                    <button id="analyze-btn" class="btn btn-primary">
+                        <i class="fas fa-search"></i>
+                        Iniciar Análise
+                    </button>
+                    <button id="connect-btn" class="btn btn-success" disabled>
+                        <i class="fas fa-link"></i>
+                        Conectar Melhor Rota
+                    </button>
+                    <button id="disconnect-btn" class="btn btn-danger" disabled>
+                        <i class="fas fa-unlink"></i>
+                        Desconectar
+                    </button>
+                </div>
+                <div id="progress-bar" class="progress-bar" style="display: none;">
+                    <div class="progress-text">Processando...</div>
+                </div>
+            </section>
+
+            <!-- Network Statistics -->
+            <section class="stats-section">
+                <div class="panel-header">
+                    <h2><i class="fas fa-chart-line"></i> Estatísticas de Rede</h2>
+                </div>
+                <div id="network-stats" class="network-stats">
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-label">Interfaces Ativas</div>
+                            <div class="stat-value">-</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-label">Rotas Descobertas</div>
+                            <div class="stat-value">-</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-label">Status</div>
+                            <div class="stat-value disconnected">Desconectado</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Routes List -->
+            <section class="routes-section">
+                <div class="panel-header">
+                    <h2><i class="fas fa-route"></i> Rotas Disponíveis</h2>
+                    <div class="routes-info">
+                        <span class="routes-count">0 rotas encontradas</span>
+                    </div>
+                </div>
+                <div id="routes-list" class="routes-list">
+                    <div class="no-routes">
+                        <i class="fas fa-search"></i>
+                        <p>Nenhuma rota disponível</p>
+                        <small>Clique em "Iniciar Análise" para descobrir rotas</small>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Log Output -->
+            <section class="log-section">
+                <div class="panel-header">
+                    <h2><i class="fas fa-terminal"></i> Log de Atividades</h2>
+                    <button id="clear-log" class="btn btn-sm btn-secondary">
+                        <i class="fas fa-trash"></i>
+                        Limpar
+                    </button>
+                </div>
+                <div id="log-output" class="log-output">
+                    <div class="log-entry">
+                        <span class="log-time">[00:00:00]</span>
+                        <span class="log-message">Hiraishin VPN iniciado</span>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <span>Hiraishin VPN v1.0.0</span>
+                    <span>•</span>
+                    <span>Análise Inteligente de Conexão</span>
+                </div>
+                <div class="footer-links">
+                    <a href="#" class="footer-link">
+                        <i class="fas fa-question-circle"></i>
+                        Ajuda
+                    </a>
+                    <a href="#" class="footer-link">
+                        <i class="fas fa-cog"></i>
+                        Configurações
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Notification Container -->
+    <div id="notification-container" class="notification-container"></div>
+
+    <!-- Scripts -->
+    <script src="renderer.js"></script>
+</body>
+</html>
